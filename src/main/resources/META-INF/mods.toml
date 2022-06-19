@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="GPL"
+issueTrackerURL="https://github.com/DarkShadow44/GardenDeco/issues"
+[[mods]]
+modId="gardendeco"
+version="${file.jarVersion}"
+displayName="GardenDeco"
+displayURL="https://github.com/DarkShadow44/GardenDeco"
+#logoFile="examplemod.png"
+authors="DarkShadow44"
+description='''
+Mod adding more variety for creating gardens!
+'''
+[[dependencies.examplemod]]
+    modId="forge"
+    mandatory=true
+    versionRange="[40,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.examplemod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2,1.19)"
+    ordering="NONE"
+    side="BOTH"
