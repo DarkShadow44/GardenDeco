@@ -48,6 +48,7 @@ public class ItemSoilTestkitUsed extends Item {
 			level.setBlockAndUpdate(pos, target.defaultBlockState());
 			EntityBlockMimic entity = (EntityBlockMimic) level.getBlockEntity(pos);
 			entity.setBiomePos(biomePos);
+			level.sendBlockUpdated(pos, state, state, 0);
 		}
 
 		return InteractionResult.SUCCESS;
