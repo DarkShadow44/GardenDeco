@@ -3,5 +3,6 @@
 	
 	"block.gardendeco.mimic_grass": "Grass (GardenDeco)",
 	"item.gardendeco.mimic_grass": "Grass (GardenDeco)",
-	"item.gardendeco.soil_testkit": "Soil Testkit"
+	"item.gardendeco.soil_testkit": "Soil Testkit",
+	"item.gardendeco.soil_testkit_used": "Soil Testkit (Used)"
 } 
