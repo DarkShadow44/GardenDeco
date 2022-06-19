@@ -12,7 +12,6 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class ItemSoilTestkitUsed extends Item {
@@ -42,6 +41,10 @@ public class ItemSoilTestkitUsed extends Item {
 
 		if (block == Blocks.GRASS_BLOCK || block == GardenDeco.BLOCK_MIMIC_GRASS.get()) {
 			target = GardenDeco.BLOCK_MIMIC_GRASS.get();
+		}
+
+		if (block == Blocks.FERN || block == GardenDeco.BLOCK_MIMIC_FERN.get()) {
+			target = GardenDeco.BLOCK_MIMIC_FERN.get();
 		}
 
 		if (target != null) {

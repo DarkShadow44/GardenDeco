@@ -11,3 +11,4 @@ run/logs
 run/user*.json
 run/hs_*.log
 crash-reports/
+screenshots/

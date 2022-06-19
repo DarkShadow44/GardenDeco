@@ -1,6 +1,7 @@
 package org.gardendeco;
 
 import org.gardendeco.block.BlockMimicGrass;
+import org.gardendeco.block.BlockMimicTallGrassBlock;
 import org.gardendeco.block.EntityBlockMimic;
 import org.gardendeco.item.ItemSoilTestkit;
 import org.gardendeco.item.ItemSoilTestkitUsed;
@@ -36,21 +37,27 @@ public class GardenDeco {
 	public static final RegistryObject<Block> BLOCK_MIMIC_GRASS = RegistryFuncs.registerMimicBlock("mimic_grass", Blocks.GRASS_BLOCK, BlockMimicGrass::new);
 	public static final RegistryObject<Item> ITEM_MIMIC_GRASS = RegistryFuncs.registerMimicBlockItem("mimic_grass", BLOCK_MIMIC_GRASS);
 
+	public static final RegistryObject<Block> BLOCK_MIMIC_FERN = RegistryFuncs.registerMimicBlock("mimic_fern", Blocks.FERN, BlockMimicTallGrassBlock::new);
+	public static final RegistryObject<Item> ITEM_MIMIC_FERN = RegistryFuncs.registerMimicBlockItem("mimic_fern", BLOCK_MIMIC_FERN);
+
 	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT = RegistryFuncs.registerItem("soil_testkit", ItemSoilTestkit::new, 1);
 	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT_USED = RegistryFuncs.registerItem("soil_testkit_used", ItemSoilTestkitUsed::new, 1);
 
 	public static final RegistryObject<BlockEntityType<?>> BLOCK_ENTITY_MIMIC = RegistryFuncs.registerBlockEntity("mimic", EntityBlockMimic::new,
-			BLOCK_MIMIC_GRASS);
+			BLOCK_MIMIC_GRASS,
+			BLOCK_MIMIC_FERN);
 
 	@SubscribeEvent
 	public static void onColorHandlerEvent(ColorHandlerEvent.Block event) {
 		event.getBlockColors().register(new GardenBlockColor(),
-				GardenDeco.BLOCK_MIMIC_GRASS.get());
+				BLOCK_MIMIC_GRASS.get(),
+				BLOCK_MIMIC_FERN.get());
 	}
 
 	@SubscribeEvent
 	public static void doClientStuff(FMLClientSetupEvent event) {
 		ItemBlockRenderTypes.setRenderLayer(BLOCK_MIMIC_GRASS.get(), RenderType.cutoutMipped());
+		ItemBlockRenderTypes.setRenderLayer(BLOCK_MIMIC_FERN.get(), RenderType.cutout());
 	}
 
 	public GardenDeco() {

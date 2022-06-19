@@ -1,5 +1,6 @@
 package org.gardendeco.setup;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -29,17 +30,23 @@ public class RegistryFuncs {
 		return BLOCK_ENTITIES.register(name, () -> BlockEntityType.Builder.of(constructor, Stream.of(validBlocks).map(block -> block.get()).toArray(Block[]::new)).build(null));
 	}
 
-	public static RegistryObject<Block> registerMimicBlock(String name, Block original, Function<BlockBehaviour.Properties, Block> constructor) {
+	@SuppressWarnings("deprecation")
+	public static RegistryObject<Block> registerMimicBlock(String name, Block original, BiFunction<BlockBehaviour.Properties, Block, Block> constructor) {
 		BlockState originalState = original.defaultBlockState();
 		BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(originalState.getMaterial())
 				.destroyTime(original.defaultDestroyTime())
 				.explosionResistance(originalState.getExplosionResistance(null, null, null))
 				.sound(originalState.getSoundType());
-
 		if (originalState.isRandomlyTicking()) {
 			properties.randomTicks();
 		}
-		return BLOCKS.register(name, () -> constructor.apply(properties));
+		if (!originalState.canOcclude()) {
+			properties.noOcclusion();
+		}
+		if (original.getCollisionShape(originalState, null, null, null).isEmpty()) {
+			properties.noCollission();
+		}
+		return BLOCKS.register(name, () -> constructor.apply(properties, original));
 	}
 
 	public static RegistryObject<Item> registerItem(String name, Function<Item.Properties, Item> constructor, int stackSize) {
