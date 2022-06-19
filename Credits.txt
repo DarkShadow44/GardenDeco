@@ -1,0 +1,5 @@
+Ideas from GardenStuff mod: https://www.curseforge.com/minecraft/mc-mods/garden-stuff
+
+Textures from GardenStuff:
+- soil_test_kit.png
+- soil_test_kit_used.png

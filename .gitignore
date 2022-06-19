@@ -8,3 +8,5 @@ bin/
 run/config
 run/saves
 run/logs
+run/user*.json
+run/hs_*.log
