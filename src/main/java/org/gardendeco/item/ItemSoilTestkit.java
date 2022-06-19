@@ -30,7 +30,7 @@ public class ItemSoilTestkit extends Item {
 
 		ItemStack stack = new ItemStack(GardenDeco.ITEM_SOIL_TESTKIT_USED.get());
 		CompoundTag tag = new CompoundTag();
-		tag.putLong("pos", pos.asLong());
+		tag.putLong("biomePos", pos.asLong());
 
 		String biomeKey = level.getBiome(pos).value().getRegistryName().toString();
 		tag.putString("biomeKey", biomeKey);

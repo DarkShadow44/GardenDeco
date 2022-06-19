@@ -4,11 +4,10 @@ import org.gardendeco.GardenDeco;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class EntityBlockMimic extends BlockEntity implements EntityBlock {
+public class EntityBlockMimic extends BlockEntity {
 
 	BlockPos biomePos = null;
 
@@ -19,7 +18,9 @@ public class EntityBlockMimic extends BlockEntity implements EntityBlock {
 	@Override
 	protected void saveAdditional(CompoundTag tag) {
 		super.saveAdditional(tag);
-		tag.putLong("pos", biomePos.asLong());
+		if (biomePos != null) {
+			tag.putLong("pos", biomePos.asLong());
+		}
 	}
 
 	@Override
@@ -28,16 +29,11 @@ public class EntityBlockMimic extends BlockEntity implements EntityBlock {
 		biomePos = BlockPos.of(tag.getLong("pos"));
 	}
 
-	public BlockPos getPos() {
+	public BlockPos getBiomePos() {
 		return biomePos;
 	}
 
-	public void setPos(BlockPos pos) {
+	public void setBiomePos(BlockPos pos) {
 		biomePos = pos;
-	}
-
-	@Override
-	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new EntityBlockMimic(pos, state);
 	}
 }
