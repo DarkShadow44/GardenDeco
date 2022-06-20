@@ -27,33 +27,40 @@ public class RegistryFuncs {
 
 	@SafeVarargs
 	public static RegistryObject<BlockEntityType<?>> registerBlockEntity(String name, BlockEntitySupplier<? extends BlockEntity> constructor, RegistryObject<Block>... validBlocks) {
-		return BLOCK_ENTITIES.register(name, () -> BlockEntityType.Builder.of(constructor, Stream.of(validBlocks).map(block -> block.get()).toArray(Block[]::new)).build(null));
+		return BLOCK_ENTITIES.register(name, () -> {
+			Block[] blocks = Stream.of(validBlocks).map(block -> block.get()).toArray(Block[]::new);
+			return BlockEntityType.Builder.of(constructor, blocks).build(null);
+		});
 	}
 
 	@SuppressWarnings("deprecation")
 	public static RegistryObject<Block> registerMimicBlock(String name, Block original, BiFunction<BlockBehaviour.Properties, Block, Block> constructor) {
-		BlockState originalState = original.defaultBlockState();
-		BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(originalState.getMaterial())
-				.destroyTime(original.defaultDestroyTime())
-				.explosionResistance(originalState.getExplosionResistance(null, null, null))
-				.sound(originalState.getSoundType());
-		if (originalState.isRandomlyTicking()) {
-			properties.randomTicks();
-		}
-		if (!originalState.canOcclude()) {
-			properties.noOcclusion();
-		}
-		if (original.getCollisionShape(originalState, null, null, null).isEmpty()) {
-			properties.noCollission();
-		}
-		return BLOCKS.register(name, () -> constructor.apply(properties, original));
+		return BLOCKS.register(name, () -> {
+			BlockState originalState = original.defaultBlockState();
+			BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(originalState.getMaterial())
+					.destroyTime(original.defaultDestroyTime())
+					.explosionResistance(originalState.getExplosionResistance(null, null, null))
+					.sound(originalState.getSoundType());
+			if (originalState.isRandomlyTicking()) {
+				properties.randomTicks();
+			}
+			if (!originalState.canOcclude()) {
+				properties.noOcclusion();
+			}
+			if (original.getCollisionShape(originalState, null, null, null).isEmpty()) {
+				properties.noCollission();
+			}
+			return constructor.apply(properties, original);
+		});
 	}
 
 	public static RegistryObject<Item> registerItem(String name, Function<Item.Properties, Item> constructor, int stackSize) {
-		Item.Properties properties = new Item.Properties()
-				.stacksTo(stackSize)
-				.tab(GardenDeco.TAB_GARDEN);
-		return ITEMS.register(name, () -> constructor.apply(properties));
+		return ITEMS.register(name, () -> {
+			Item.Properties properties = new Item.Properties()
+					.stacksTo(stackSize)
+					.tab(GardenDeco.TAB_GARDEN);
+			return constructor.apply(properties);
+		});
 	}
 
 	public static RegistryObject<Item> registerMimicBlockItem(String name, RegistryObject<Block> block) {
