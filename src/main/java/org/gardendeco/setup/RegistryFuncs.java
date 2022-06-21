@@ -1,8 +1,8 @@
 package org.gardendeco.setup;
 
+import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
-import java.util.stream.Stream;
 
 import org.gardendeco.GardenDeco;
 
@@ -24,10 +24,9 @@ public class RegistryFuncs {
 	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, GardenDeco.MODID);
 	private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, GardenDeco.MODID);
 
-	@SafeVarargs
-	public static RegistryObject<BlockEntityType<?>> registerBlockEntity(String name, BlockEntitySupplier<? extends BlockEntity> constructor, RegistryObject<Block>... validBlocks) {
+	public static RegistryObject<BlockEntityType<?>> registerBlockEntity(String name, BlockEntitySupplier<? extends BlockEntity> constructor, List<RegistryObject<Block>> validBlocks) {
 		return BLOCK_ENTITIES.register(name, () -> {
-			Block[] blocks = Stream.of(validBlocks).map(block -> block.get()).toArray(Block[]::new);
+			Block[] blocks = validBlocks.stream().map(block -> block.get()).toArray(Block[]::new);
 			return BlockEntityType.Builder.of(constructor, blocks).build(null);
 		});
 	}

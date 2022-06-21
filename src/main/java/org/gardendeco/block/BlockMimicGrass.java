@@ -2,6 +2,8 @@ package org.gardendeco.block;
 
 import java.util.List;
 
+import org.gardendeco.ColorType;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -11,7 +13,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext.Builder;
 
-public class BlockMimicGrass extends GrassBlock implements EntityBlock {
+public class BlockMimicGrass extends GrassBlock implements EntityBlock, IMimicBlock {
 
 	private Block original;
 
@@ -34,5 +36,15 @@ public class BlockMimicGrass extends GrassBlock implements EntityBlock {
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new EntityBlockMimic(pos, state);
+	}
+
+	@Override
+	public Block getOriginal() {
+		return original;
+	}
+
+	@Override
+	public ColorType getColorType() {
+		return ColorType.GRASS;
 	}
 }
