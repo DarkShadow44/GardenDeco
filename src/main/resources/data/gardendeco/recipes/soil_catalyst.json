@@ -1,21 +1,3 @@
 {
-	"type": "minecraft:crafting_shapeless",
-	"ingredients": [
-		{
-			"item": "minecraft:potion",
-			"nbt": "{Potion:'minecraft:water'}"
-		},
-		{
-			"item": "minecraft:ender_pearl"
-		},
-		{
-			"item": "minecraft:quartz"
-		},
-		{
-			"item": "minecraft:diamond"
-		}
-	],
-	"result": {
-		"item": "gardendeco:soil_catalyst"
-	}
+	"type": "gardendeco:soil_catalyst"
 }

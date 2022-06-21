@@ -12,6 +12,7 @@ import org.gardendeco.item.ItemSoilTestkit;
 import org.gardendeco.item.ItemSoilTestkitEmpty;
 import org.gardendeco.item.ItemSoilTestkitImproved;
 import org.gardendeco.item.ItemSoilTestkitNullifier;
+import org.gardendeco.recipe.RecipeSoilCatalyst;
 import org.gardendeco.recipe.RecipeTestkitImproved;
 import org.gardendeco.setup.RegistryFuncs;
 
@@ -60,6 +61,7 @@ public class GardenDeco {
 	public static final RegistryObject<BlockEntityType<?>> BLOCK_ENTITY_MIMIC = RegistryFuncs.registerBlockEntity("mimic", EntityBlockMimic::new, BLOCKS_MIMIC);
 
 	public static final RegistryObject<RecipeSerializer<?>> RECIPE_TESTKIT_IMPROVED = RegistryFuncs.registerRecipeSerializer("testkit_improved", RecipeTestkitImproved::new);
+	public static final RegistryObject<RecipeSerializer<?>> RECIPE_SOIL_CATALYST = RegistryFuncs.registerRecipeSerializer("soil_catalyst", RecipeSoilCatalyst::new);
 
 	@SubscribeEvent
 	public static void onColorHandlerEvent(ColorHandlerEvent.Block event) {
