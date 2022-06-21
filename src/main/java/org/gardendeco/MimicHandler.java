@@ -74,4 +74,29 @@ public class MimicHandler {
 
 		return biome.getGrassColor(0, 0);
 	}
+
+	public static boolean tryRemoveMimic(Level level, BlockPos pos) {
+		BlockState state = level.getBlockState(pos);
+
+		if (state.isAir()) {
+			return false;
+		}
+
+		Block block = state.getBlock();
+		Block target = null;
+
+		if (block == GardenDeco.BLOCK_MIMIC_GRASS.get()) {
+			target = Blocks.GRASS_BLOCK;
+		}
+
+		if (block == GardenDeco.BLOCK_MIMIC_FERN.get()) {
+			target = Blocks.FERN;
+		}
+
+		if (target == null)
+			return false;
+
+		level.setBlockAndUpdate(pos, target.defaultBlockState());
+		return true;
+	}
 }

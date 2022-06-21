@@ -1,5 +1,6 @@
 {
 	"itemGroup.gardendeco_tab": "GardenDeco",
 	"item.gardendeco.soil_testkit": "Empty Soil Testkit",
-	"item.gardendeco.soil_testkit_used": "Soil Testkit"
+	"item.gardendeco.soil_testkit_used": "Soil Testkit",
+	"item.gardendeco.soil_testkit_nullifier": "Soil Testkit Nullifier"
 } 

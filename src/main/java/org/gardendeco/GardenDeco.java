@@ -4,6 +4,7 @@ import org.gardendeco.block.BlockMimicGrass;
 import org.gardendeco.block.BlockMimicTallGrassBlock;
 import org.gardendeco.block.EntityBlockMimic;
 import org.gardendeco.item.ItemSoilTestkit;
+import org.gardendeco.item.ItemSoilTestkitNullifier;
 import org.gardendeco.item.ItemSoilTestkitUsed;
 import org.gardendeco.setup.RegistryFuncs;
 
@@ -42,6 +43,7 @@ public class GardenDeco {
 
 	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT = RegistryFuncs.registerItem("soil_testkit", ItemSoilTestkit::new, 1);
 	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT_USED = RegistryFuncs.registerItem("soil_testkit_used", ItemSoilTestkitUsed::new, 1);
+	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT_NULLIFIER = RegistryFuncs.registerItem("soil_testkit_nullifier", ItemSoilTestkitNullifier::new, 1);
 
 	public static final RegistryObject<BlockEntityType<?>> BLOCK_ENTITY_MIMIC = RegistryFuncs.registerBlockEntity("mimic", EntityBlockMimic::new,
 			BLOCK_MIMIC_GRASS,
