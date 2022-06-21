@@ -6,7 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class ItemSoilTestkitNullifier extends ItemSoilTestkit {
+public class ItemSoilTestkitNullifier extends BaseItemTestkit {
 
 	public ItemSoilTestkitNullifier(Properties properties) {
 		super(properties);
@@ -16,5 +16,4 @@ public class ItemSoilTestkitNullifier extends ItemSoilTestkit {
 	public boolean applyTestkit(Level level, BlockPos pos, ItemStack stack) {
 		return MimicHandler.tryRemoveMimic(level, pos);
 	}
-
 }

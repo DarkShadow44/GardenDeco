@@ -44,5 +44,4 @@ public class ItemSoilTestkitEmpty extends Item {
 		context.getPlayer().setItemInHand(interactionhand, stack);
 		return InteractionResult.SUCCESS;
 	}
-
 }
