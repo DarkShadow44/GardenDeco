@@ -2,6 +2,7 @@ package org.gardendeco.item;
 
 import org.gardendeco.MimicHandler;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
@@ -10,12 +11,17 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biomes;
 
 public class ItemSoilTestkit extends Item {
 
 	public ItemSoilTestkit(Properties properties) {
 		super(properties);
+	}
+
+	public boolean applyTestkit(Level level, BlockPos pos, ItemStack stack) {
+		return MimicHandler.tryMakeMimic(level, pos, stack);
 	}
 
 	@Override
@@ -26,13 +32,15 @@ public class ItemSoilTestkit extends Item {
 
 		ItemStack stack = context.getItemInHand();
 
-		if (!MimicHandler.tryMakeMimic(context.getLevel(), context.getClickedPos(), stack)) {
+		if (!applyTestkit(context.getLevel(), context.getClickedPos(), stack)) {
 			return super.useOn(context);
 		}
 
-		stack.setDamageValue(stack.getDamageValue() + 1);
-		if (stack.getDamageValue() >= stack.getMaxDamage()) {
-			context.getPlayer().setItemInHand(context.getHand(), ItemStack.EMPTY);
+		if (stack.getMaxDamage() != 0) {
+			stack.setDamageValue(stack.getDamageValue() + 1);
+			if (stack.getDamageValue() >= stack.getMaxDamage()) {
+				context.getPlayer().setItemInHand(context.getHand(), ItemStack.EMPTY);
+			}
 		}
 		return InteractionResult.SUCCESS;
 	}
