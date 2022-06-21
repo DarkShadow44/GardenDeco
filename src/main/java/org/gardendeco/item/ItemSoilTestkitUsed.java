@@ -19,7 +19,7 @@ public class ItemSoilTestkitUsed extends Item {
 			return super.useOn(context);
 		}
 
-		if (!MimicHandler.TryMakeMimic(context.getLevel(), context.getClickedPos(), context.getItemInHand())) {
+		if (!MimicHandler.tryMakeMimic(context.getLevel(), context.getClickedPos(), context.getItemInHand())) {
 			return super.useOn(context);
 		}
 

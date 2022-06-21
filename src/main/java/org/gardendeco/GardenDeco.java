@@ -49,7 +49,7 @@ public class GardenDeco {
 
 	@SubscribeEvent
 	public static void onColorHandlerEvent(ColorHandlerEvent.Block event) {
-		event.getBlockColors().register(new GardenBlockColor(),
+		event.getBlockColors().register(new GardenBlockColorGrass(),
 				BLOCK_MIMIC_GRASS.get(),
 				BLOCK_MIMIC_FERN.get());
 	}
