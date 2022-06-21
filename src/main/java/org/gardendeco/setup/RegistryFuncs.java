@@ -5,7 +5,6 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 import org.gardendeco.GardenDeco;
-import org.gardendeco.item.BlockItemMimic;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -61,10 +60,6 @@ public class RegistryFuncs {
 					.tab(GardenDeco.TAB_GARDEN);
 			return constructor.apply(properties);
 		});
-	}
-
-	public static RegistryObject<Item> registerMimicBlockItem(String name, RegistryObject<Block> block) {
-		return registerItem(name, properties -> new BlockItemMimic(block.get(), properties), 64);
 	}
 
 	public static void register() {

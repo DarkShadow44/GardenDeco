@@ -36,10 +36,8 @@ public class GardenDeco {
 	public static TabGarden TAB_GARDEN = new TabGarden();
 
 	public static final RegistryObject<Block> BLOCK_MIMIC_GRASS = RegistryFuncs.registerMimicBlock("mimic_grass", Blocks.GRASS_BLOCK, BlockMimicGrass::new);
-	public static final RegistryObject<Item> ITEM_MIMIC_GRASS = RegistryFuncs.registerMimicBlockItem("mimic_grass", BLOCK_MIMIC_GRASS);
 
 	public static final RegistryObject<Block> BLOCK_MIMIC_FERN = RegistryFuncs.registerMimicBlock("mimic_fern", Blocks.FERN, BlockMimicTallGrassBlock::new);
-	public static final RegistryObject<Item> ITEM_MIMIC_FERN = RegistryFuncs.registerMimicBlockItem("mimic_fern", BLOCK_MIMIC_FERN);
 
 	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT = RegistryFuncs.registerItem("soil_testkit", ItemSoilTestkit::new, 1);
 	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT_USED = RegistryFuncs.registerItem("soil_testkit_used", ItemSoilTestkitUsed::new, 1);
