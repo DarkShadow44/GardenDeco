@@ -53,9 +53,7 @@ public class ItemSoilTestkit extends Item {
 					pos.getX() + 0.5 + random.nextGaussian() * 0.5,
 					pos.getY() + 0.5 + random.nextGaussian() * 0.5,
 					pos.getZ() + 0.5 + random.nextGaussian() * 0.5,
-					random.nextGaussian() * 0.5,
-					random.nextGaussian() * 0.5,
-					random.nextGaussian() * 0.5);
+					0, 0, 0);
 		}
 		return InteractionResult.SUCCESS;
 	}
