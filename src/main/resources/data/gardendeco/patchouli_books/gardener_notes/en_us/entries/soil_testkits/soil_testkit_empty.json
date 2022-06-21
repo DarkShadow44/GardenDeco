@@ -1,0 +1,15 @@
+{
+	"name": "Empty Soil Testkit",
+	"icon": "gardendeco:soil_testkit_empty",
+	"category": "gardendeco:soil_testkits",
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "This is a test entry, but it should show up!"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "gardendeco:soil_testkit_empty"
+		}
+	]
+}

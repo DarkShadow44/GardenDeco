@@ -12,3 +12,4 @@ run/user*.json
 run/hs_*.log
 crash-reports/
 screenshots/
+run/patchouli_data.json
