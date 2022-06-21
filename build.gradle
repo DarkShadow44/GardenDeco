@@ -69,11 +69,14 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-
+    maven { url = "https://dvs1.progwml6.com/files/maven/" }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.1.51'
+
+    compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
 }
 
 jar {
