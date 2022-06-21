@@ -1,5 +1,6 @@
-package org.gardendeco;
+package org.gardendeco.color;
 
+import org.gardendeco.MimicHandler;
 import org.gardendeco.block.EntityBlockMimic;
 import org.gardendeco.block.IMimicBlock;
 

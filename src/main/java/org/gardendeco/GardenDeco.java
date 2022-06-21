@@ -6,10 +6,12 @@ import java.util.List;
 import org.gardendeco.block.BlockMimicGrass;
 import org.gardendeco.block.BlockMimicTallGrassBlock;
 import org.gardendeco.block.EntityBlockMimic;
-import org.gardendeco.item.ItemSoilTestkit;
+import org.gardendeco.color.ColorType;
+import org.gardendeco.color.GardenBlockColor;
+import org.gardendeco.item.ItemSoilTestkitEmpty;
 import org.gardendeco.item.ItemSoilTestkitImproved;
 import org.gardendeco.item.ItemSoilTestkitNullifier;
-import org.gardendeco.item.ItemSoilTestkitUsed;
+import org.gardendeco.item.ItemSoilTestkit;
 import org.gardendeco.setup.RegistryFuncs;
 
 import net.minecraft.Util;
@@ -46,8 +48,8 @@ public class GardenDeco {
 			BLOCK_MIMIC_GRASS,
 			BLOCK_MIMIC_FERN);
 
-	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT = RegistryFuncs.registerItem("soil_testkit", ItemSoilTestkit::new, 1, 0);
-	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT_USED = RegistryFuncs.registerItem("soil_testkit_used", ItemSoilTestkitUsed::new, 1, 64);
+	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT_EMPTY = RegistryFuncs.registerItem("soil_testkit_empty", ItemSoilTestkitEmpty::new, 1, 0);
+	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT = RegistryFuncs.registerItem("soil_testkit", ItemSoilTestkit::new, 1, 64);
 	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT_IMPROVED = RegistryFuncs.registerItem("soil_testkit_improved", ItemSoilTestkitImproved::new, 1, 0);
 	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT_NULLIFIER = RegistryFuncs.registerItem("soil_testkit_nullifier", ItemSoilTestkitNullifier::new, 1, 0);
 
@@ -79,7 +81,7 @@ public class GardenDeco {
 		public static void onTooltip(ItemTooltipEvent event) {
 			ItemStack stack = event.getItemStack();
 
-			if (stack.getItem() instanceof ItemSoilTestkitUsed) {
+			if (stack.getItem() instanceof ItemSoilTestkit) {
 				CompoundTag tag = stack.getTag();
 				if (tag == null)
 					return;

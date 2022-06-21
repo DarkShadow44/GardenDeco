@@ -12,7 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class ItemSoilTestkitImproved extends ItemSoilTestkitUsed {
+public class ItemSoilTestkitImproved extends ItemSoilTestkit {
 
 	public ItemSoilTestkitImproved(Properties properties) {
 		super(properties);

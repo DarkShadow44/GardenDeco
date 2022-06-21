@@ -2,7 +2,7 @@ package org.gardendeco.block;
 
 import java.util.List;
 
-import org.gardendeco.ColorType;
+import org.gardendeco.color.ColorType;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;

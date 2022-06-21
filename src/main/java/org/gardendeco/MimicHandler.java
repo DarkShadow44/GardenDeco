@@ -2,6 +2,7 @@ package org.gardendeco;
 
 import org.gardendeco.block.EntityBlockMimic;
 import org.gardendeco.block.IMimicBlock;
+import org.gardendeco.color.ColorType;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;

@@ -1,6 +1,6 @@
 package org.gardendeco.block;
 
-import org.gardendeco.ColorType;
+import org.gardendeco.color.ColorType;
 
 import net.minecraft.world.level.block.Block;
 

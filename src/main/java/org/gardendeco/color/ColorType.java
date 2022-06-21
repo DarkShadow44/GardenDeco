@@ -1,4 +1,4 @@
-package org.gardendeco;
+package org.gardendeco.color;
 
 public enum ColorType {
 	GRASS,

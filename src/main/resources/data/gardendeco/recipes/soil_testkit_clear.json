@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "gardendeco:soil_testkit_used"
+      "item": "gardendeco:soil_testkit"
     }
   ],
   "result": {
-    "item": "gardendeco:soil_testkit"
+    "item": "gardendeco:soil_testkit_empty"
   }
 }
