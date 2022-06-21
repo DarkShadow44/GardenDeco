@@ -52,10 +52,11 @@ public class RegistryFuncs {
 		});
 	}
 
-	public static RegistryObject<Item> registerItem(String name, Function<Item.Properties, Item> constructor, int stackSize) {
+	public static RegistryObject<Item> registerItem(String name, Function<Item.Properties, Item> constructor, int stackSize, int durability) {
 		return ITEMS.register(name, () -> {
 			Item.Properties properties = new Item.Properties()
 					.stacksTo(stackSize)
+					.durability(durability)
 					.tab(GardenDeco.TAB_GARDEN);
 			return constructor.apply(properties);
 		});

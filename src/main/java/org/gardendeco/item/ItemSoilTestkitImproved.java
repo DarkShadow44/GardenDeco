@@ -4,17 +4,17 @@ import org.gardendeco.MimicHandler;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.biome.Biomes;
+import net.minecraftforge.registries.ForgeRegistries;
 
-public class ItemSoilTestkitUsed extends Item {
+public class ItemSoilTestkitImproved extends ItemSoilTestkitUsed {
 
-	public ItemSoilTestkitUsed(Properties properties) {
+	public ItemSoilTestkitImproved(Properties properties) {
 		super(properties);
 	}
 
@@ -24,25 +24,21 @@ public class ItemSoilTestkitUsed extends Item {
 			return super.useOn(context);
 		}
 
-		ItemStack stack = context.getItemInHand();
-
-		if (!MimicHandler.tryMakeMimic(context.getLevel(), context.getClickedPos(), stack)) {
+		if (!MimicHandler.tryMakeMimic(context.getLevel(), context.getClickedPos(), context.getItemInHand())) {
 			return super.useOn(context);
 		}
 
-		stack.setDamageValue(stack.getDamageValue() + 1);
-		if (stack.getDamageValue() >= stack.getMaxDamage()) {
-			context.getPlayer().setItemInHand(context.getHand(), ItemStack.EMPTY);
-		}
 		return InteractionResult.SUCCESS;
 	}
 
 	@Override
 	public void fillItemCategory(CreativeModeTab tab, NonNullList<ItemStack> stacks) {
-		ItemStack stack = new ItemStack(this);
-		CompoundTag tag = new CompoundTag();
-		tag.putString("biomeKey", Biomes.PLAINS.getRegistryName().toString());
-		stack.setTag(tag);
-		stacks.add(stack);
+		for (ResourceLocation biome : ForgeRegistries.BIOMES.getKeys()) {
+			ItemStack stack = new ItemStack(this);
+			CompoundTag tag = new CompoundTag();
+			tag.putString("biomeKey", biome.toString());
+			stack.setTag(tag);
+			stacks.add(stack);
+		}
 	}
 }
