@@ -35,7 +35,7 @@ public class RecipeSoilCatalyst extends CustomRecipe {
 				} else if (stack.getItem() == Items.QUARTZ) {
 					countNetherQuartz++;
 				} else if (stack.getItem() == Items.POTION) {
-					if (PotionUtils.getPotion(stack.getTag()) == Potions.EMPTY) {
+					if (PotionUtils.getPotion(stack.getTag()) == Potions.WATER) {
 						countWaterBottle++;
 					} else {
 						return false;
@@ -65,7 +65,7 @@ public class RecipeSoilCatalyst extends CustomRecipe {
 	public NonNullList<Ingredient> getIngredients() {
 		NonNullList<Ingredient> ret = NonNullList.create();
 		ItemStack stack = new ItemStack(Items.POTION);
-		stack = PotionUtils.setPotion(stack, Potions.EMPTY);
+		stack = PotionUtils.setPotion(stack, Potions.WATER);
 		ret.add(Ingredient.of(stack));
 		ret.add(Ingredient.of(Items.DIAMOND));
 		ret.add(Ingredient.of(Items.ENDER_PEARL));
