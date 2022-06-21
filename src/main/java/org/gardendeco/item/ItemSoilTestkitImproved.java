@@ -4,7 +4,6 @@ import org.gardendeco.MimicHandler;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -27,10 +26,7 @@ public class ItemSoilTestkitImproved extends BaseItemTestkit {
 		if (!allowdedIn(tab))
 			return;
 		for (ResourceLocation biome : ForgeRegistries.BIOMES.getKeys()) {
-			ItemStack stack = new ItemStack(this);
-			CompoundTag tag = new CompoundTag();
-			tag.putString("biomeKey", biome.toString());
-			stack.setTag(tag);
+			ItemStack stack = BaseItemTestkit.createTestkit(this, biome.toString());
 			stacks.add(stack);
 		}
 	}

@@ -4,7 +4,6 @@ import org.gardendeco.GardenDeco;
 import org.gardendeco.block.IMimicBlock;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -36,11 +35,8 @@ public class ItemSoilTestkitEmpty extends Item {
 			return super.useOn(context);
 		}
 
-		ItemStack stack = new ItemStack(GardenDeco.ITEM_SOIL_TESTKIT.get());
 		String biomeKey = level.getBiome(pos).value().getRegistryName().toString();
-		CompoundTag tag = new CompoundTag();
-		tag.putString("biomeKey", biomeKey);
-		stack.setTag(tag);
+		ItemStack stack = BaseItemTestkit.createTestkit(GardenDeco.ITEM_SOIL_TESTKIT.get(), biomeKey);
 		context.getPlayer().setItemInHand(interactionhand, stack);
 		return InteractionResult.SUCCESS;
 	}

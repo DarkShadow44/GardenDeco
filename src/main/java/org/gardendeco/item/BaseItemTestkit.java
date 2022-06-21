@@ -4,12 +4,14 @@ import java.util.Random;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biomes;
 
 public abstract class BaseItemTestkit extends Item {
 
@@ -48,5 +50,17 @@ public abstract class BaseItemTestkit extends Item {
 					0, 0, 0);
 		}
 		return InteractionResult.SUCCESS;
+	}
+
+	public static ItemStack createTestkit(Item item, String biomeKey) {
+		ItemStack stack = new ItemStack(item);
+		CompoundTag tag = new CompoundTag();
+		tag.putString("biomeKey", biomeKey);
+		stack.setTag(tag);
+		return stack;
+	}
+
+	public static ItemStack createTestkitDummy(Item item) {
+		return createTestkit(item, Biomes.PLAINS.location().toString());
 	}
 }
