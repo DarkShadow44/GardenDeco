@@ -1,6 +1,7 @@
 {
 	"itemGroup.gardendeco_tab": "GardenDeco",
 	"gardendeco.message.cannot_pick_mimic": "Can't pick color from mimic block",
+	"item.gardendeco.soil_catalyst": "Soil Catalyst",
 	"item.gardendeco.soil_testkit_empty": "Empty Soil Testkit",
 	"item.gardendeco.soil_testkit": "Soil Testkit",
 	"item.gardendeco.soil_testkit_improved": "Improved Soil Testkit",

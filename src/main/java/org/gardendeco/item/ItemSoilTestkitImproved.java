@@ -23,4 +23,8 @@ public class ItemSoilTestkitImproved extends ItemSoilTestkit {
 			stacks.add(stack);
 		}
 	}
+
+	public boolean isFoil(ItemStack pStack) {
+		return true;
+	}
 }

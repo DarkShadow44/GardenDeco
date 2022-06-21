@@ -8,10 +8,11 @@ import org.gardendeco.block.BlockMimicTallGrassBlock;
 import org.gardendeco.block.EntityBlockMimic;
 import org.gardendeco.color.ColorType;
 import org.gardendeco.color.GardenBlockColor;
+import org.gardendeco.item.ItemSoilTestkit;
 import org.gardendeco.item.ItemSoilTestkitEmpty;
 import org.gardendeco.item.ItemSoilTestkitImproved;
 import org.gardendeco.item.ItemSoilTestkitNullifier;
-import org.gardendeco.item.ItemSoilTestkit;
+import org.gardendeco.recipe.RecipeTestkitImproved;
 import org.gardendeco.setup.RegistryFuncs;
 
 import net.minecraft.Util;
@@ -23,6 +24,8 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SimpleFoiledItem;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -52,8 +55,11 @@ public class GardenDeco {
 	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT = RegistryFuncs.registerItem("soil_testkit", ItemSoilTestkit::new, 1, 64);
 	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT_IMPROVED = RegistryFuncs.registerItem("soil_testkit_improved", ItemSoilTestkitImproved::new, 1, 0);
 	public static final RegistryObject<Item> ITEM_SOIL_TESTKIT_NULLIFIER = RegistryFuncs.registerItem("soil_testkit_nullifier", ItemSoilTestkitNullifier::new, 1, 0);
+	public static final RegistryObject<Item> ITEM_SOIL_CATALYST = RegistryFuncs.registerItem("soil_catalyst", SimpleFoiledItem::new, 64, 0);
 
 	public static final RegistryObject<BlockEntityType<?>> BLOCK_ENTITY_MIMIC = RegistryFuncs.registerBlockEntity("mimic", EntityBlockMimic::new, BLOCKS_MIMIC);
+
+	public static final RegistryObject<RecipeSerializer<?>> RECIPE_TESTKIT_IMPROVED = RegistryFuncs.registerRecipeSerializer("testkit_improved", RecipeTestkitImproved::new);
 
 	@SubscribeEvent
 	public static void onColorHandlerEvent(ColorHandlerEvent.Block event) {
