@@ -1,10 +1,12 @@
 package org.gardendeco.block;
 
 import java.util.List;
+import java.util.Random;
 
 import org.gardendeco.color.ColorType;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
@@ -15,11 +17,11 @@ import net.minecraft.world.level.storage.loot.LootContext.Builder;
 
 public class BlockMimicGrass extends GrassBlock implements EntityBlock, IMimicBlock {
 
-	private Block original;
+	private GrassBlock original;
 
 	public BlockMimicGrass(Properties properties, Block original) {
 		super(properties);
-		this.original = original;
+		this.original = (GrassBlock) original;
 	}
 
 	@SuppressWarnings("deprecation")
@@ -31,6 +33,11 @@ public class BlockMimicGrass extends GrassBlock implements EntityBlock, IMimicBl
 	@Override
 	public String getDescriptionId() {
 		return original.getDescriptionId();
+	}
+
+	@Override
+	public void performBonemeal(ServerLevel level, Random random, BlockPos pos, BlockState state) {
+		original.performBonemeal(level, random, pos, state);
 	}
 
 	@Override
