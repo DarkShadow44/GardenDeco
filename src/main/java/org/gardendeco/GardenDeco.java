@@ -16,6 +16,7 @@ import net.minecraft.Util;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -81,10 +82,14 @@ public class GardenDeco {
 				CompoundTag tag = stack.getTag();
 				if (tag == null)
 					return;
+
 				String biomeKey = tag.getString("biomeKey");
 				String biomeName = Util.makeDescriptionId("biome", new ResourceLocation(biomeKey));
-				event.getToolTip().add(new TranslatableComponent(biomeName).withStyle(ChatFormatting.GREEN));
+				int color = MimicHandler.getBiomeColor(biomeKey, ColorType.GRASS);
+				Style style = Style.EMPTY.withColor(color);
+				event.getToolTip().add(new TranslatableComponent(biomeName).withStyle(style));
 			}
 		}
+
 	}
 }
