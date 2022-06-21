@@ -1,0 +1,20 @@
+{
+	"name": "Soil Testkit",
+	"icon": "gardendeco:soil_testkit",
+	"category": "gardendeco:soil_testkits",
+	"sortnum": 0,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "Empty Soil Testkits allow you to sample the color of a biome. Just rightclick on any block, and you get it's color. If you want to clear the Testkit again, just put it into a crafting grid.$(br2)Note: Due to the nature of artifically colored blocks, you won't be able to sample them. You can only sample naturally colored blocks.$(br)Yes, this means you have to actually keep going to that biome whose color you want to borrow... This is a science and not magic, after all.$(br)You get 64 uses out of each until they break, but you might find a way to make them last longer... much longer.$(br)"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "gardendeco:soil_testkit_empty"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "gardendeco:soil_testkit_clear"
+		}
+	]
+}
