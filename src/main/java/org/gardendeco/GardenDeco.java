@@ -89,7 +89,7 @@ public class GardenDeco {
 		public static void onTooltip(ItemTooltipEvent event) {
 			ItemStack stack = event.getItemStack();
 
-			if (stack.getItem() instanceof ItemSoilTestkit) {
+			if (stack.getItem() instanceof ItemSoilTestkit || stack.getItem() instanceof ItemSoilTestkitImproved) {
 				CompoundTag tag = stack.getTag();
 				if (tag == null)
 					return;
