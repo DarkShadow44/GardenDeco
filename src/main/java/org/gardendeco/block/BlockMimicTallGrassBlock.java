@@ -27,6 +27,11 @@ public class BlockMimicTallGrassBlock extends TallGrassBlock implements EntityBl
 	}
 
 	@Override
+	public String getDescriptionId() {
+		return original.getDescriptionId();
+	}
+
+	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new EntityBlockMimic(pos, state);
 	}
