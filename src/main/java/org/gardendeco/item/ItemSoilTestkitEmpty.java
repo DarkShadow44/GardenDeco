@@ -1,9 +1,11 @@
 package org.gardendeco.item;
 
 import org.gardendeco.GardenDeco;
+import org.gardendeco.block.IMimicBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
@@ -24,6 +26,12 @@ public class ItemSoilTestkitEmpty extends Item {
 		Level level = context.getLevel();
 		BlockState state = level.getBlockState(pos);
 		InteractionHand interactionhand = context.getHand();
+
+		if (state.getBlock() instanceof IMimicBlock) {
+			context.getPlayer().displayClientMessage(new TranslatableComponent("gardendeco.message.cannot_pick_mimic"), true);
+			return super.useOn(context);
+		}
+
 		if (state.isAir() || interactionhand != InteractionHand.MAIN_HAND) {
 			return super.useOn(context);
 		}
