@@ -1,0 +1,16 @@
+{
+	"name": "Mod Support",
+	"icon": "minecraft:emerald",
+	"category": "gardendeco:compatibility",
+	"sortnum": 0,
+	"pages": [
+		{
+			"type": "text",
+			"text": "Supported mods:$(br)- Serene Seasons"
+		},
+		{
+			"type": "text",
+			"text": "Planned Support for$(br)- Biomes O' Plenty$(br)- Oh The Biomes You'll Go$(br)- Verdure$(br)"
+		}
+	]
+}

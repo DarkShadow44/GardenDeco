@@ -1,0 +1,16 @@
+{
+	"name": "Soil Testkit Nullifier",
+	"icon": "gardendeco:soil_testkit_nullifier",
+	"category": "gardendeco:soil_testkits",
+	"sortnum": 2,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "Of course, sometimes you may want to revert your plants to their natural color. That's where the Soil Testkit Nullifier comes in.$(br)Just right click a block and it will return to its original state. Don't worry about its uses, it's unlimited!$(br)"
+		},
+		{
+			"type": "patchouli:crafting",
+			"recipe": "gardendeco:soil_testkit_nullifier"
+		}
+	]
+}

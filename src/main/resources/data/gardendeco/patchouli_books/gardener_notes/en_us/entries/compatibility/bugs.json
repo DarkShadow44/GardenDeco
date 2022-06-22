@@ -1,0 +1,14 @@
+{
+	"name": "Bugs & Issues",
+	"icon": "minecraft:emerald",
+	"category": "gardendeco:compatibility",
+	"sortnum": 0,
+	"pages": [
+		{
+			"type": "patchouli:link",
+			"text": "If you encounter issues, please report them to my github.",
+			"url": "https://github.com/DarkShadow44/GardenDeco/issues",
+			"link_text": "Github Issues"
+		}
+	]
+}

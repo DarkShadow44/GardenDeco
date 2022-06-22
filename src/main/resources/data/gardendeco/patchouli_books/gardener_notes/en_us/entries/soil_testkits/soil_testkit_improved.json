@@ -6,7 +6,7 @@
 	"pages": [
 		{
 			"type": "patchouli:text",
-			"text": "What a marvel of engineering! A right click with those will allow you to color a block of grass or foliage in the color of another biome!$(br)"
+			"text": "What's better than a Soil Testkit? A Soil Testkit with unlimited uses!$(br)If water is infinite, why isn't this? Mixing rare materials from the depths of the 3 different dimensions into water allows you to exploit its regenerating properties, making your testkit last forver.$(br)However, it prevents you from recycling without losing those properties, so make sure you don't waste your resources...$(br)"
 		},
 		{
 			"type": "patchouli:crafting",

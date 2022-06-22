@@ -1,0 +1,5 @@
+{
+	"name": "Compatibility",
+	"description": "Mod support and issue handling.$(br) I only really test in single player, so if you have issues on a server, please report it.",
+	"icon": "minecraft:emerald"
+}
